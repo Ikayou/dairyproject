@@ -1,0 +1,16 @@
+{% extends "base/diary_base.html" %}
+{% block body %}
+
+<h1 class="text-center mb-4" >Write Diary</h1>
+<form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+    {% csrf_token %}
+    <div class="mb-3">
+        {{ form.as_p }}
+    </div>
+
+    
+    <button type="submit" class="btn btn-primary btn-lg">Save</button>
+</form>
+{% endblock %}
+
+ 

@@ -1,0 +1,17 @@
+{% extends "base/diary_base.html"%}
+{% block body %}
+
+<form method="POST">
+    {% csrf_token %}
+    <p>Are you sure you want to delete?</p>
+    <button type="submit" class="btn btn-danger">Yes</button>
+</form>
+<h2>{{ page.title}}</h2>
+<div>{{ page.page_date }}</div>
+<div>{{ page.body | linebreaksbr }}</div>
+{% if page.picture %}
+    <img src ="{{ page.picture.url}}"/>
+{% endif %}
+<br>
+
+{% endblock %}
