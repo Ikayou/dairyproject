@@ -1,0 +1,24 @@
+{% extends "base/diary_base.html" %}
+{% block body %}
+
+<div class="container mt-4">
+    <div class="row">
+        {% for page in page_list %}
+            <div class="col-md-4 mb-4">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ page.title }}</h5>
+                        <p class="card-text text-muted">{{ page.page_date }}</p>
+                        <a href="{% url 'diary:page_detail' page.id %}" class="btn btn-primary">View Page</a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="col-12 text-center text-muted">
+                No pages are available.
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
